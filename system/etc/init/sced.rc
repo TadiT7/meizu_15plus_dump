@@ -1,0 +1,5 @@
+service SCE-daemon /system/bin/sced
+    class main
+    user root
+    group system
+    seclabel u:r:sced:s0

@@ -1,0 +1,18 @@
+service ril-daemon /system/bin/rild_exynos
+    class main
+    socket rild stream 660 root radio
+    socket sap_uim_socket1 stream 660 bluetooth bluetooth
+    socket rild-debug stream 660 radio system
+    user root
+    group radio cache inet misc audio log readproc wakelock
+
+    socket rild2 stream 660 root radio
+    socket rild2-debug stream 660 radio system
+    socket rild-vsim stream 660 root radio
+    onrestart restart cpboot-daemon
+    seclabel u:r:rild:s0
+
+on property:sys.rild_reset=1
+    stop ril-daemon
+    setprop sys.rild_reset 0
+    start ril-daemon

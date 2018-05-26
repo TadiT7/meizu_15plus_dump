@@ -1,0 +1,3 @@
+libimsg_log.so
+libmtee.so
+libteeclientjni.so

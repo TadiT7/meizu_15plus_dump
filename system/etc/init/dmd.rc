@@ -1,0 +1,6 @@
+# DM daemon
+    service DM-daemon /system/bin/dmd
+    class main
+    user root
+    group system
+    seclabel u:r:dmd:s0
